@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="js/angular/angular.js"></script>
+    <script type="text/javascript" src="js/myScript.js"></script>
+    <script type="text/javascript" src="js/filter.js"></script>
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/syntaxhighlighter/shCore.js"></script>
+    <script type="text/javascript" src="js/syntaxhighlighter/shBrushJScript.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/syntaxhighlighter/shCoreDefault.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript">
+    SyntaxHighlighter.all();
+    </script>
+</head>
+
+<body ng-controller="myController" class="container-fluid">
+    <h2>Modle and controller</h2>
+    <!-- to show code -->
+    <h4>JS code</h4>
+    <pre class="brush: js;">
+var myApp = angular.module('myModule', []);
+	myApp.controller('myController',  function($scope){
+	//Creating object
+	var myself ={
+	firstName:"Kyaw Zin",
+	lastName:"Htun",
+	Gender:"Male"
+	};
+	$scope.myself=myself;
+});
+</pre>
+    <h4>Html code</h4>
+    <div ng-non-bindable>
+        <pre class="brush: js; html-script: false">
+		&lt;html ng-app="myModule"&gt;
+		&lt;body ng-controller="myController"&gt;
+			<div class="panel panel-default">
+			<div class="panel-heading">Demo</div>
+			<div class="panel-body">      	
+			First Name : {{myself.firstName}}</div>
+			<div class="panel-body">50-20 = {{50-20}}</div>
+			</div>
+			&lt;/body&gt;
+		&lt;/html&gt;
+		</pre>
+    </div>
+    <!-- expression test to show data -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">
+            First Name : {{myself.firstName}}</div>
+        <div class="panel-body">50-20 = {{50-20}}</div>
+    </div>
+
+    <!-- ng-src directive -->
+    <h2>AngularJS ng src directive</h2></div>
+    <!-- syntaxhighlighter -->
+    <h4>JS code</h4>
+    <pre class="brush:js;">
+    var myApp = angular.module('myModule', []);
+		myApp.controller('myController',  function($scope){
+		//Creating object
+		var country = {
+		name:"Myanmar",
+		image:"images/mm.png"
+	};
+	$scope.country = country;
+	});
+    </pre>    
+    <h4>Html Code</h4>
+    <pre class="brush:js;" ng-non-bindable>
+    <div class="panel panel-default"  ng-app="myApp" ng-controller="myController">
+        <div class="panel-heading">
+        Demo
+        <div class="panel-body">Name : {{country.name}}</div>
+        <div class="panel-body"><img ng-src="{{country.image}}" width="100px" height="50px"></div>
+    </div>
+    </pre>
+    <!-- end of syntaxhighlighter -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Demo</div>
+        <div class="panel-body">Name : {{country.name}}</div>
+        <div class="panel-body"><img ng-src="{{country.image}}" width="100px" height="50px"></div>
+    </div>
+    <!-- end of ng-src directive -->
+    <!-- two way data binding -->
+    <h2>Two Way Data Binding (ng-model)</h2>
+    Two way data binding can use in three element sector that is
+    <ul>
+    	<li>TextField</li>
+    	<li>Select</li>
+    	<li>TextArea</li>
+    </ul>
+    <!-- syntaxhighlighter -->
+    <h4> JS code</h4>
+    <pre class="brush:js;">
+    var myApp = angular.module('myModule', []);
+		myApp.controller('myController',  function($scope){
+		//Creating object
+		var myself ={
+		firstName:"Kyaw Zin",
+		lastName:"Htun",
+		Gender:"Male"
+	};
+	$scope.myself=myself;
+	});	
+    </pre>
+    <h4>Html Code</h4>
+    <pre class="brush:js;" ng-non-bindable>
+    <div class="panel panel-default" ng-app="myModule" ng-controller="myController">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">lastName :
+            <input type="text" ng-model="myself.lastName">
+        </div>
+        <div class="panel-body">lastName : {{myself.lastName}}</div>
+    </div>
+    </pre>
+    <!-- end of syntaxhighlighter -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">lastName :
+            <input type="text" ng-model="myself.lastName">
+        </div>
+        <div class="panel-body">lastName : {{myself.lastName}}</div>
+    </div>
+    <!-- end of two way data binding -->
+    <!-- ng-repeat directive -->
+    <h2>AngularJS ng repeat directive</h2>
+    <!-- syntaxhighlighter -->
+    <h4>JS Code</h4>
+    <pre class="brush:js;">
+    var myApp = angular.module('myModule', []);
+	myApp.controller('myController',  function($scope){
+	// Creating object list
+	// prepare data for ng-repeat
+	var students = [
+	{name : "Phyo Ko", year: "Third Year"},
+	{name : "Myint Zaw", year: "Second Year"},
+	{name : "Phyo Oo", year: "Pregraduate"}
+	];
+	$scope.students=students;
+	});		
+    </pre>
+    <h4>Html Code</h4>
+    <pre class="brush:js;" ng-non-bindable>
+    <div class="panel panel-default" ng-app="myModule" ng-controller="myController">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="student in students">
+                        <td>{{$index+1}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.year}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </pre>
+    <!-- end of syntaxhighlighter -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="student in students">
+                        <td>{{$index+1}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.year}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- handling event -->
+     <h2>Handling Event in AngularJS (ng-click)</h2>
+     <!-- syntaxhighlighter -->
+     <h2>JS Code</h2>
+     <pre class="brush:js;">
+     var myApp = angular.module('myModule', []);
+	myApp.controller('myController',  function($scope){
+	// perpare for handling event in angularjs
+	var technologies = [
+	{name : "Java", like : "0", dislike : "0"},
+	{name : "C#", like : "0", dislike : "0"},
+	{name : "ASP", like : "0", dislike : "0"},
+	{name : "PHP", like : "0", dislike : "0"},
+	{name : "Android", like : "0", dislike : "0"}
+	];
+	$scope.technologies = technologies;
+
+	// create increment function for like
+	$scope.likeIncrement = function(technology){
+		technology.like++;
+	}
+
+	// create increment function for dislike
+	$scope.disLikeIncrement = function(technology){
+		technology.dislike++;
+	}
+	});	
+     </pre>
+    <h4>Html Code</h4>
+    <pre class="brush:js;" ng-non-bindable>
+    <div class="panel panel-default" ng-app="myModule" ng-controller="myController">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">
+        </div>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Like</th>
+                    <th>DisLike</th>
+                    <th>Like/Dislike</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="technology in technologies">
+                    <td>{{technology.name}}</td>
+                    <td>{{technology.like}}</td>
+                    <td>{{technology.dislike}}</td>
+                    <td>
+                        <input type="button" value="Like" ng-click="likeIncrement(technology)">
+                        <input type="button" value="DisLike" ng-click="disLikeIncrement(technology)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>	
+    </pre>
+    <!-- end of syntaxhighlighter -->
+        <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">
+        </div>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Like</th>
+                    <th>DisLike</th>
+                    <th>Like/Dislike</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="technology in technologies">
+                    <td>{{technology.name}}</td>
+                    <td>{{technology.like}}</td>
+                    <td>{{technology.dislike}}</td>
+                    <td>
+                        <input type="button" value="Like" ng-click="likeIncrement(technology)">
+                        <input type="button" value="DisLike" ng-click="disLikeIncrement(technology)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- filter test -->
+    <h2>AngularJS Filter</h2>
+    <!-- syntaxhighlighter -->
+    <h4>JS code</h4>
+    <pre class="brush:js;">
+    var myApp = angular.module('myModule', []);
+	myApp.controller('myController',  function($scope){
+	//prepare object list for angularjs filter test
+	var employees = [
+	{name : "Lionel",dateofBirth : new Date("November 23, 1980"),gender : "Male", salary : "380000.49322"},
+	{name : "Wanye",dateofBirth : new Date("October 11, 1991"),gender : "Male", salary : "380000.49322"},
+	{name : "Neymar",dateofBirth : new Date("November 23, 1980"),gender : "Male", salary : "380000.49322"},
+	{name : "Suarez",dateofBirth : new Date("November 23, 1980"),gender : "Male", salary : "380000.49322"},
+	{name : "Iniasta",dateofBirth : new Date("November 23, 1980"),gender : "Male", salary : "380000.49322"}
+	];
+	$scope.employees = employees;
+	$scope.rowLimit = 3;
+	});		
+    </pre>
+    <h2>Html Code</h2>
+    <pre class="brush:js;" ng-non-bindable>
+    <div class="panel panel-default" ng-app="myModule" ng-controller="myController">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">       
+        Row to display :
+        <input type="number" step="1" min="0" max="5" ng-model="rowLimit">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Salary (Number)</th>
+                    <th>Salary (Currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:rowLimit">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | number:2}}</td>
+                    <td>{{employee.salary | currency:SGD:1}}</td>
+                </tr>
+            </tbody>
+        </table>
+         </div>
+    </div>	
+    </pre>
+    <!-- end of syntaxhighlighter -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">       
+        Row to display :
+        <input type="number" step="1" min="0" max="5" ng-model="rowLimit">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Salary (Number)</th>
+                    <th>Salary (Currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:rowLimit">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | number:2}}</td>
+                    <td>{{employee.salary | currency:SGD:1}}</td>
+                </tr>
+            </tbody>
+        </table>
+         </div>
+    </div>
+    <!-- pagination with filter and sorting -->
+    <h2>Pagination with table header sort and limit row</h2>
+     <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body"> 
+        
+        	Row to display : 
+        	<input type="number" step="1" min="0" max="5" ng-model="limit" class="form-control">          
+        	    	
+        <div class="pagination-table">  
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th ng-click="sortData('name')">
+                    Name
+                    <div ng-class="getSortClass('name')"></div>
+                    </th>
+                    <th ng-click="sortData('dateOfBirth')">
+                    DOB
+                    <div ng-class="getSortClass('dateOfBirth')"></div>
+                    </th>
+                    <th ng-click="sortData('gender')">
+                    Gender
+                    <div ng-class="getSortClass('gender')"></div>
+                    </th>
+                    <th ng-click="sortData('salary')">
+                    Salary (Number)
+                    <div ng-class="getSortClass('salary')"></div>
+                    </th>
+                    <th>Salary (Currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:limit:page | orderBy:sortColumn:reverseSort">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | number:2}}</td>
+                    <td>{{employee.salary | currency:SGD:1}}</td>
+                </tr>
+                </tbody>
+        </table>
+        </div>  
+        <div ng-repeat="i in getNumber(dataSize,limit) track by $index" class="btn-group inline pull-left">
+                	<input type="button" value="{{$index+1}}" ng-click="goPage($index,limit)" class="btn-primary" ng-class="{active : activeButton == $index+1}" />
+                	</div>
+         </div>
+    </div>
+    <!-- search filter -->
+    <h2>Search Filter</h2>
+     <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body"> 
+        
+        	<input type="text" placeholder="Search by name" ng-model="filterText.name" class="form-control">
+        	    	
+        <div class="search-table">  
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th ng-click="sortData('name')">
+                    Name
+                    <div ng-class="getSortClass('name')"></div>
+                    </th>
+                    <th ng-click="sortData('dateOfBirth')">
+                    DOB
+                    <div ng-class="getSortClass('dateOfBirth')"></div>
+                    </th>
+                    <th ng-click="sortData('gender')">
+                    Gender
+                    <div ng-class="getSortClass('gender')"></div>
+                    </th>
+                    <th ng-click="sortData('salary')">
+                    Salary (Number)
+                    <div ng-class="getSortClass('salary')"></div>
+                    </th>
+                    <th>Salary (Currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | filter:filterText | orderBy:sortColumn:reverseSort">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | number:2}}</td>
+                    <td>{{employee.salary | currency:SGD:1}}</td>
+                </tr>
+                </tbody>
+        </table>
+        </div>  
+       
+    </div>
+    </div>
+    <!-- filter by multiple properties -->
+    <h2>Search Filter</h2>
+     <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body"> 
+        
+        	<input type="text" placeholder="Search by name & city" ng-model="searchMultipleText" class="form-control">
+        	    	
+        <div>  
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th ng-click="sortData('name')">
+                    Name
+                    <div ng-class="getSortClass('name')"></div>
+                    </th>                   
+                    <th ng-click="sortData('gender')">
+                    Gender
+                    <div ng-class="getSortClass('gender')"></div>
+                    </th>
+                    <th ng-click="sortData('city')">
+                    Salary (Number)
+                    <div ng-class="getSortClass('city')"></div>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="friend in friends | filter:search | orderBy:sortColumn:reverseSort">
+                    <td>{{friend.name | uppercase}}</td>                    
+                    <td>{{friend.gender | lowercase}}</td>                    
+                    <td>{{friend.city | uppercase}}</td>
+                </tr>
+                </tbody>
+        </table>
+        </div>  
+       </div>
+    </div>
+
+    <!-- create custom filter -->
+    <h2>Customer Filter</h2>
+     <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body"> 
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>                   
+                    <th>Gender</th>                            
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cele in celes">
+                    <td>{{cele.name | uppercase}}</td>                    
+                    <td>{{cele.gender | gender | lowercase}}</td>
+                </tr>
+                </tbody>
+        </table>
+        </div>  
+       </div>
+    </div>
+</body>
+
+</html>
