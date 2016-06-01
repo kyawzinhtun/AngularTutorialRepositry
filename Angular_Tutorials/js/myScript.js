@@ -126,4 +126,16 @@ myApp.controller('myController',  function($scope){
 	{name: "Shuruk Khan", gender:1},
 	{name: "Unknown", gender: 3}
 	];
+
+	// ng include directive
+	// create object list
+	$scope.teamMembers = [
+	{name: "Thae Thae", position: "Project Manager", gender: "female", salary:1000},
+	{name: "Aung Kyaw Zaw", position: "Software Engineer Leader", gender: "male", salary:800},
+	{name: "May Oo Lwin", position: "Senior Software Engineer", gender: "female", salary:600},
+	{name: "Shew Su Mon", position: "Junior Software Engineer", gender: "female", salary:300},
+	{name: "Tin Moe Khaing", position: "Senior Programmer", gender: "female", salary:400},
+	{name: "Kyaw Zin Htun", position: "Senior Programmer", gender: "male", salary:400}
+	];	
+	$scope.teamMembersView="team-member-table.html";
 });

@@ -538,7 +538,20 @@ var myApp = angular.module('myModule', []);
        
     </div>
     </div>
-
+    <!-- ng include directive -->
+    <h2>ng include directive</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">
+    Select View
+    <select ng-model="teamMembersView">
+        <option value="team-member-table.html">Table</option>
+        <option value="team-member-list.html">List</option>
+    </select>
+    <!-- to show table or list -->
+    <div ng-include="teamMembersView"></div>
+    </div>
+    </div>
     </div>
 </body>
 
