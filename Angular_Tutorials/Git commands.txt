@@ -1,0 +1,62 @@
+Git commands
+
+Local Repository
+//add user name to git config
+$git config --global user.name "something"
+//add user password to git config
+$git config --global user.password "something"
+//check git version
+$git -v
+//initial git
+$git init
+//check status
+$git status
+//add ignore file list
+$touch .gitignore
+open text editor with .gitignore file
+set ignore file extension (eg. .project,.classes,etc..)
+//add local reposity
+$git add -A
+Note-- -A is all
+$git add filename
+//commit to local
+$git commit -m "Comment"
+//check git logs
+$git log
+
+Remote Repository
+create new repository in github
+copy the remote link (eg.https://github.com/kyawzinhtun/AngularTutorialRepositry.git)
+//set a new remote
+$git remote add origin https://github.com/kyawzinhtun/AngularTutorialRepositry.git
+//verify the remote
+$git remote -v
+//Pushes the changes in your local repository up to the remote repository you specified as the origin
+$git push origin master
+
+
+
+Remote to local
+//clone repository to local machine
+$git clone https://github.com/kyawzinhtun/AngularTutorialRepositry.git
+/after modify something
+//checking differ
+$git diff
+//check again status
+$git status
+//add local repo
+$git add -A
+//commit local repo
+$git commit -m "comment"
+//Push to remote
+//before pushing, need to check with master
+$git pull origin master
+//if not have anything change in remote, we can push
+$git push origin master
+
+
+Check update file from remote
+$git pull origin master
+//if something is updating we need to merge
+//to update in local
+$git fetch
