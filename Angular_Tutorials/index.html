@@ -19,7 +19,7 @@
 </head>
 
 <body ng-controller="myController" class="container-fluid">
-    <h2>Modle and controller</h2>
+    <h2>Model and controller</h2>
     <!-- to show code -->
     <h4>JS code</h4>
     <pre class="brush: js;">
@@ -503,6 +503,42 @@ var myApp = angular.module('myModule', []);
         </table>
         </div>  
        </div>
+       <!-- ng hide and show -->
+       <h2>ng hide and show</h2>
+     <div class="panel panel-default">
+        <div class="panel-heading">Demo</div>
+        <div class="panel-body">         
+            <input type="checkbox" ng-model="hideSalary"/>Hide Salary
+        <div class="search-table">  
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <!-- hide entire salary column -->
+                    <th ng-hide="hideSalary">Salary</th>
+                    <!-- show salary column -->
+                    <th ng-show="hideSalary">Salary</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <!-- hide entire salary column -->
+                    <td ng-hide="hideSalary">{{employee.salary | number:2}}</td> 
+                    <!-- show salary column as ##### -->
+                    <td ng-show="hideSalary">######</td>                   
+                </tr>
+                </tbody>
+        </table>
+        </div>  
+       
+    </div>
+    </div>
+
     </div>
 </body>
 
