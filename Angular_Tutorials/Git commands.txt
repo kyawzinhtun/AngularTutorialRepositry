@@ -5,6 +5,8 @@ Local Repository
 $git config --global user.name "something"
 //add user password to git config
 $git config --global user.password "something"
+//check git config
+$git config --list
 //check git version
 $git -v
 //initial git
