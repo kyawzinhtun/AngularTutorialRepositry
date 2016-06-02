@@ -1,0 +1,8 @@
+<ul ng-repeat="teamMember in teamMembers">
+	<li>Name - {{teamMember.name}}</li>
+		<ul>
+			<li>Position - {{teamMember.position}}</li>
+			<li>Gender - {{teamMember.gender}}</li>
+			<li>Salary (USD) - {{teamMember.salary | currency : usd}}</li>
+		</ul>
+</ul>

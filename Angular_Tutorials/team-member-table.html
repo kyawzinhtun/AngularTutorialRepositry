@@ -1,0 +1,20 @@
+
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Gender</th>
+                   	<th>Salary (USD)</th>                 
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="teamMember in teamMembers">
+                    <td>{{teamMember.name | uppercase}}</td>
+                    <td>{{teamMember.position}}</td>
+                    <td>{{teamMember.gender | lowercase}}</td>
+                    <td>{{teamMember.salary | currency : USD}}</td>                   
+                </tr>
+                </tbody>
+        </table>
+    
