@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+
 import javax.persistence.Id;
 
 @Entity
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="product_id")
+	@Column(name="product_id")	
 	private int Id;
 	@Column(name="product_name")
 	private String name;
@@ -20,6 +21,8 @@ public class Product {
 	private double price;
 	@Column(name="product_category")
 	private String category;
+
+	
 	public int getId() {
 		return Id;
 	}
@@ -48,5 +51,6 @@ public class Product {
 	public String toString() {
 		return "Product [Id=" + Id + ", name=" + name + ", price=" + price + ", category=" + category + "]";
 	}
+	
 	
 }
