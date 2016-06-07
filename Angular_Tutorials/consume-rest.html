@@ -3,7 +3,8 @@
 	<head>
 	<title>Hello AngularJS</title>
 	<script type="text/javascript" src="js/angular/angular.js"></script>
-    <script src="js/consume_rest.js"></script>
+    <script src="js/productController.js"></script>
+    <script src="js/productService.js"></script>
     <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
@@ -44,25 +45,32 @@
     			<span style="color:red" ng-show="addProductForm.productCategory.$error.required">Product category is required!</span>   
     			</div>
   			</div>  
-  			<button type="submit" class="btn btn-default" ng-click="addProduct()">Submit</button>
+  			<button type="submit" class="btn btn-default" ng-click="addProduct()" ng-show="submitButton">Submit</button>
+  			<button type="submit" class="btn btn-default" ng-click="updateProduct(id)" ng-show="editButton">Edit</button>
 		</form>
 		</div>
 		<div class="panel-body"> 
+		<div>{{error}}</div>
         <table class="table table-condensed" ng-model="getProduct">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>name</th>
                     <th>price</th>   
-                    <th>category</th>                          
+                    <th>category</th>
+                    <th>Action</th>                          
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="product in products">
-                    <td>{{product.id}}</td>
+                    <td>{{$index+1}}</td>
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>                              
                     <td>{{product.category}}</td>
+                    <td>
+                    <button class="btn btn-default" ng-click="getProduct(product.id)">Update</button>
+                    <button class="btn btn-default" ng-click="deleteProduct(product.id)">Delete</button>
+                    </td>
                 </tr>
                 </tbody>
         </table>
