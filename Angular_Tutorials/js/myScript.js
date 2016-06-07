@@ -3,7 +3,7 @@ var myApp = angular.module('myModule', []);
 
 //Creating controller
 
-myApp.controller('myController',  function($scope){
+myApp.controller('myController',  function($scope,$http){
 	//Creating object
 	var myself ={
 		firstName:"Kyaw Zin",
@@ -138,4 +138,5 @@ myApp.controller('myController',  function($scope){
 	{name: "Kyaw Zin Htun", position: "Senior Programmer", gender: "male", salary:400}
 	];	
 	$scope.teamMembersView="team-member-table.html";
+
 });
